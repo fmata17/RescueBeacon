@@ -1,0 +1,271 @@
+file,county,locality,latitude,longitude,role,date,osm_buildings,osm_roads
+TX001_2016_NAIP.png,Harris County,Bear Creek / west Houston,29.84302629,-95.63873291,before,2016-09-28,291,35
+TX001_2017_NOAA.png,Harris County,Bear Creek / west Houston,29.84302629,-95.63873291,response,2017-08-30,291,35
+TX002_2016_NAIP.png,Harris County,Bear Creek / west Houston,29.84302629,-95.63323975,before,2016-09-28,252,40
+TX002_2017_NOAA.png,Harris County,Bear Creek / west Houston,29.84302629,-95.63323975,response,2017-08-30,252,40
+TX004_2016_NAIP.png,Harris County,Bear Creek / west Houston,29.83826145,-95.63873291,before,2016-09-28,197,43
+TX004_2017_NOAA.png,Harris County,Bear Creek / west Houston,29.83826145,-95.63873291,response,2017-08-30,197,43
+TX005_2016_NAIP.png,Harris County,Bear Creek / west Houston,29.83826145,-95.64971924,before,2016-09-28,276,77
+TX005_2017_NOAA.png,Harris County,Bear Creek / west Houston,29.83826145,-95.64971924,response,2017-08-30,276,77
+TX006_2016_NAIP.png,Harris County,Bear Creek / west Houston,29.83826145,-95.62774658,before,2016-09-28,0,20
+TX006_2017_NOAA.png,Harris County,Bear Creek / west Houston,29.83826145,-95.62774658,response,2017-08-30,0,20
+TX010_2016_NAIP.png,Harris County,Bear Creek / west Houston,29.83349638,-95.62774658,before,2016-09-28,8,29
+TX010_2017_NOAA.png,Harris County,Bear Creek / west Houston,29.83349638,-95.62774658,response,2017-08-30,8,29
+TX011_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.85731945,-95.61676025,before,2016-09-28,290,23
+TX011_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.85731945,-95.61676025,response,2017-08-30,290,23
+TX012_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.85731945,-95.61126709,before,2016-09-28,265,48
+TX012_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.85731945,-95.61126709,response,2017-08-30,265,48
+TX013_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.85255529,-95.61676025,before,2016-09-28,78,24
+TX013_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.85255529,-95.61676025,response,2017-08-30,78,24
+TX014_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.85255529,-95.61126709,before,2016-09-28,219,22
+TX014_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.85255529,-95.61126709,response,2017-08-30,219,22
+TX015_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.8477909,-95.61676025,before,2016-09-28,26,17
+TX015_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.8477909,-95.61676025,response,2017-08-30,26,17
+TX016_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.8477909,-95.61126709,before,2016-09-28,121,24
+TX016_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.8477909,-95.61126709,response,2017-08-30,121,24
+TX017_2016_NAIP.png,Harris County,Eldridge / northwest Houston,29.8477909,-95.60577393,before,2016-09-28,176,42
+TX017_2017_NOAA.png,Harris County,Eldridge / northwest Houston,29.8477909,-95.60577393,response,2017-08-30,176,42
+TX019_2016_NAIP.png,Harris County,Kingwood / northeast Houston,30.03343326,-95.19378662,before,2016-09-28,0,14
+TX019_2017_NOAA.png,Harris County,Kingwood / northeast Houston,30.03343326,-95.19378662,response,2017-08-31,0,14
+TX021_2016_NAIP.png,Harris County,Kingwood / northeast Houston,30.03343326,-95.18280029,before,2016-09-28,6,20
+TX021_2017_NOAA.png,Harris County,Kingwood / northeast Houston,30.03343326,-95.18280029,response,2017-08-31,6,20
+TXH_15424_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.27069091796875,before,2016-09-28,16,43
+TXH_15424_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.27069091796875,response,2017-08-31,16,43
+TXH_15425_27033_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.26519775390625,before,2016-09-28,2,26
+TXH_15425_27033_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.26519775390625,response,2017-08-31,2,26
+TXH_15425_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.26519775390625,before,2016-09-28,8,143
+TXH_15425_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.26519775390625,response,2017-08-31,8,143
+TXH_15425_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.26519775390625,before,2016-09-28,48,86
+TXH_15425_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.26519775390625,response,2017-08-31,48,86
+TXH_15426_27031_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.033433234603997,-95.25970458984375,before,2016-09-28,10,47
+TXH_15426_27031_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.033433234603997,-95.25970458984375,response,2017-08-31,10,47
+TXH_15426_27033_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.25970458984375,before,2016-09-28,0,43
+TXH_15426_27033_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.25970458984375,response,2017-08-31,0,43
+TXH_15426_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.25970458984375,before,2016-09-28,0,69
+TXH_15426_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.25970458984375,response,2017-08-31,0,69
+TXH_15426_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.25970458984375,before,2016-09-28,19,37
+TXH_15426_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.25970458984375,response,2017-08-31,19,37
+TXH_15427_27030_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.038188736626196,-95.25421142578125,before,2016-09-28,37,93
+TXH_15427_27030_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.038188736626196,-95.25421142578125,response,2017-08-31,37,93
+TXH_15427_27031_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.033433234603997,-95.25421142578125,before,2016-09-28,2,51
+TXH_15427_27031_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.033433234603997,-95.25421142578125,response,2017-08-31,2,51
+TXH_15427_27032_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.25421142578125,before,2016-09-28,0,17
+TXH_15427_27032_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.25421142578125,response,2017-08-31,0,17
+TXH_15427_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.25421142578125,before,2016-09-28,18,21
+TXH_15427_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.25421142578125,response,2017-08-31,18,21
+TXH_15428_27033_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.24871826171875,before,2016-09-28,7,18
+TXH_15428_27033_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.24871826171875,response,2017-08-31,7,18
+TXH_15428_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.24871826171875,before,2016-09-28,3,14
+TXH_15428_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.24871826171875,response,2017-08-31,3,14
+TXH_15429_27032_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.24322509765625,before,2016-09-28,5,28
+TXH_15429_27032_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.24322509765625,response,2017-08-31,5,28
+TXH_15430_27032_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.23773193359375,before,2016-09-28,9,28
+TXH_15430_27032_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.23773193359375,response,2017-08-31,9,28
+TXH_15431_27032_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.23223876953125,before,2016-09-28,3,15
+TXH_15431_27032_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.23223876953125,response,2017-08-31,3,15
+TXH_15431_27033_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.23223876953125,before,2016-09-28,34,11
+TXH_15431_27033_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.023921545981857,-95.23223876953125,response,2017-08-31,34,11
+TXH_15432_27032_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.22674560546875,before,2016-09-28,2,25
+TXH_15432_27032_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.22674560546875,response,2017-08-31,2,25
+TXH_15433_27032_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.22125244140625,before,2016-09-28,0,16
+TXH_15433_27032_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.028677504381953,-95.22125244140625,response,2017-08-31,0,16
+TXH_15436_27029_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.042944010426723,-95.20477294921875,before,2016-09-28,0,27
+TXH_15436_27029_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.042944010426723,-95.20477294921875,response,2017-08-31,0,27
+TXH_15436_27030_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.038188736626196,-95.20477294921875,before,2016-09-28,0,23
+TXH_15436_27030_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.038188736626196,-95.20477294921875,response,2017-08-31,0,23
+TXH_15437_27029_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.042944010426723,-95.19927978515625,before,2016-09-28,8,55
+TXH_15437_27029_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.042944010426723,-95.19927978515625,response,2017-08-31,8,55
+TXH_15437_27030_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.038188736626196,-95.19927978515625,before,2016-09-28,3,39
+TXH_15437_27030_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.038188736626196,-95.19927978515625,response,2017-08-31,3,39
+TXH_15438_27028_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.04769905598378,-95.19378662109375,before,2016-09-28,10,25
+TXH_15438_27028_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.04769905598378,-95.19378662109375,response,2017-08-31,10,25
+TXH_15438_27029_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.042944010426723,-95.19378662109375,before,2016-09-28,61,51
+TXH_15438_27029_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.042944010426723,-95.19378662109375,response,2017-08-31,61,51
+TXH_15438_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.19378662109375,before,2016-09-28,223,13
+TXH_15438_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.19378662109375,response,2017-08-31,223,13
+TXH_15439_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.18829345703125,before,2016-09-28,21,8
+TXH_15439_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.18829345703125,response,2017-08-31,21,8
+TXH_15439_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.18829345703125,before,2016-09-28,282,28
+TXH_15439_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.18829345703125,response,2017-08-31,282,28
+TXH_15440_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.18280029296875,before,2016-09-28,27,43
+TXH_15440_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.18280029296875,response,2017-08-31,27,43
+TXH_15440_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.18280029296875,before,2016-09-28,130,55
+TXH_15440_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.18280029296875,response,2017-08-31,130,55
+TXH_15441_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.17730712890625,before,2016-09-28,44,20
+TXH_15441_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.17730712890625,response,2017-08-31,44,20
+TXH_15441_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.17730712890625,before,2016-09-28,94,25
+TXH_15441_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.17730712890625,response,2017-08-31,94,25
+TXH_15442_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.17181396484375,before,2016-09-28,86,24
+TXH_15442_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.17181396484375,response,2017-08-31,86,24
+TXH_15442_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.17181396484375,before,2016-09-28,31,26
+TXH_15442_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.17181396484375,response,2017-08-31,31,26
+TXH_15443_27034_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.16632080078125,before,2016-09-28,188,24
+TXH_15443_27034_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.01916535942554,-95.16632080078125,response,2017-08-31,188,24
+TXH_15443_27035_before_20160928_USDA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.16632080078125,before,2016-09-28,138,23
+TXH_15443_27035_after_20170831_NOAA.png,Harris County,Forest Cove / Kingwood,30.014408944734836,-95.16632080078125,response,2017-08-31,138,23
+TXH_15340_27092_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.7429169144836,-95.73211669921875,before,2016-09-28,0,41
+TXH_15340_27092_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.7429169144836,-95.73211669921875,response,2017-08-30,0,41
+TXH_15340_27093_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.73211669921875,before,2016-09-28,3,82
+TXH_15340_27093_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.73211669921875,response,2017-08-30,3,82
+TXH_15341_27092_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.7429169144836,-95.72662353515625,before,2016-09-28,2,29
+TXH_15341_27092_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.7429169144836,-95.72662353515625,response,2017-08-30,2,29
+TXH_15341_27093_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.72662353515625,before,2016-09-28,2,15
+TXH_15341_27093_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.72662353515625,response,2017-08-30,2,15
+TXH_15341_27094_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.72662353515625,before,2016-09-28,0,15
+TXH_15341_27094_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.72662353515625,response,2017-08-30,0,15
+TXH_15342_27093_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.72113037109375,before,2016-09-28,1,16
+TXH_15342_27093_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.72113037109375,response,2017-08-30,1,16
+TXH_15342_27094_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.72113037109375,before,2016-09-28,1,15
+TXH_15342_27094_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.72113037109375,response,2017-08-30,1,15
+TXH_15344_27087_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.7667615556149,-95.71014404296875,before,2016-09-28,58,48
+TXH_15344_27087_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.7667615556149,-95.71014404296875,response,2017-08-30,58,48
+TXH_15344_27088_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.761993081233456,-95.71014404296875,before,2016-09-28,6,40
+TXH_15344_27088_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.761993081233456,-95.71014404296875,response,2017-08-30,6,40
+TXH_15344_27089_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.757224379907363,-95.71014404296875,before,2016-09-28,11,29
+TXH_15344_27089_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.757224379907363,-95.71014404296875,response,2017-08-30,11,29
+TXH_15345_27087_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.7667615556149,-95.70465087890625,before,2016-09-28,1,37
+TXH_15345_27087_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.7667615556149,-95.70465087890625,response,2017-08-30,1,37
+TXH_15345_27088_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.761993081233456,-95.70465087890625,before,2016-09-28,18,85
+TXH_15345_27088_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.761993081233456,-95.70465087890625,response,2017-08-30,18,85
+TXH_15346_27085_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.77629782345494,-95.69915771484375,before,2016-09-28,0,38
+TXH_15346_27085_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.77629782345494,-95.69915771484375,response,2017-08-30,0,38
+TXH_15346_27086_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.771529803029466,-95.69915771484375,before,2016-09-28,1,29
+TXH_15346_27086_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.771529803029466,-95.69915771484375,response,2017-08-30,1,29
+TXH_15346_27087_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.7667615556149,-95.69915771484375,before,2016-09-28,8,36
+TXH_15346_27087_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.7667615556149,-95.69915771484375,response,2017-08-30,8,36
+TXH_15348_27080_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.80013451996876,-95.68817138671875,before,2016-09-28,0,23
+TXH_15348_27080_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.80013451996876,-95.68817138671875,response,2017-08-30,0,23
+TXH_15348_27081_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.795367634821787,-95.68817138671875,before,2016-09-28,89,260
+TXH_15348_27081_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.795367634821787,-95.68817138671875,response,2017-08-30,89,260
+TXH_15348_27084_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.68817138671875,before,2016-09-28,5,112
+TXH_15348_27084_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.68817138671875,response,2017-08-30,5,112
+TXH_15349_27081_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.795367634821787,-95.68267822265625,before,2016-09-28,27,71
+TXH_15349_27081_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.795367634821787,-95.68267822265625,response,2017-08-30,27,71
+TXH_15349_27084_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.68267822265625,before,2016-09-28,14,53
+TXH_15349_27084_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.68267822265625,response,2017-08-30,14,53
+TXH_15349_27095_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.68267822265625,before,2016-09-28,12,38
+TXH_15349_27095_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.68267822265625,response,2017-08-30,12,38
+TXH_15350_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.67718505859375,before,2016-09-28,12,40
+TXH_15350_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.67718505859375,response,2017-08-30,12,40
+TXH_15350_27084_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.67718505859375,before,2016-09-28,2,15
+TXH_15350_27084_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.67718505859375,response,2017-08-30,2,15
+TXH_15351_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.67169189453125,before,2016-09-28,12,41
+TXH_15351_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.67169189453125,response,2017-08-30,12,41
+TXH_15351_27094_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.67169189453125,before,2016-09-28,20,48
+TXH_15351_27094_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.67169189453125,response,2017-08-30,20,48
+TXH_15351_27095_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.67169189453125,before,2016-09-28,2,20
+TXH_15351_27095_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.67169189453125,response,2017-08-30,2,20
+TXH_15352_27073_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.66619873046875,before,2016-09-28,40,22
+TXH_15352_27073_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.66619873046875,response,2017-08-30,40,22
+TXH_15352_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.66619873046875,before,2016-09-28,48,38
+TXH_15352_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.66619873046875,response,2017-08-30,48,38
+TXH_15352_27077_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81443381258749,-95.66619873046875,before,2016-09-28,27,23
+TXH_15352_27077_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81443381258749,-95.66619873046875,response,2017-08-30,27,23
+TXH_15352_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.66619873046875,before,2016-09-28,20,131
+TXH_15352_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.66619873046875,response,2017-08-30,20,131
+TXH_15352_27084_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.66619873046875,before,2016-09-28,7,14
+TXH_15352_27084_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.66619873046875,response,2017-08-30,7,14
+TXH_15353_27072_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.838261422882184,-95.66070556640625,before,2016-09-28,132,16
+TXH_15353_27072_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.838261422882184,-95.66070556640625,response,2017-08-30,132,16
+TXH_15353_27073_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.66070556640625,before,2016-09-28,59,39
+TXH_15353_27073_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.66070556640625,response,2017-08-30,59,39
+TXH_15353_27074_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.82873106050763,-95.66070556640625,before,2016-09-28,11,14
+TXH_15353_27074_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.82873106050763,-95.66070556640625,response,2017-08-30,11,14
+TXH_15353_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.66070556640625,before,2016-09-28,15,65
+TXH_15353_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.66070556640625,response,2017-08-30,15,65
+TXH_15353_27084_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.66070556640625,before,2016-09-28,6,24
+TXH_15353_27084_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.66070556640625,response,2017-08-30,6,24
+TXH_15353_27095_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.66070556640625,before,2016-09-28,0,36
+TXH_15353_27095_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.66070556640625,response,2017-08-30,0,36
+TXH_15354_27072_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.838261422882184,-95.65521240234375,before,2016-09-28,288,25
+TXH_15354_27072_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.838261422882184,-95.65521240234375,response,2017-08-30,288,25
+TXH_15354_27073_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.65521240234375,before,2016-09-28,84,106
+TXH_15354_27073_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.65521240234375,response,2017-08-30,84,106
+TXH_15354_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.65521240234375,before,2016-09-28,31,49
+TXH_15354_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.65521240234375,response,2017-08-30,31,49
+TXH_15354_27094_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.65521240234375,before,2016-09-28,6,62
+TXH_15354_27094_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73337746988568,-95.65521240234375,response,2017-08-30,6,62
+TXH_15354_27095_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.65521240234375,before,2016-09-28,3,92
+TXH_15354_27095_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.728607407358894,-95.65521240234375,response,2017-08-30,3,92
+TXH_15355_27073_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.64971923828125,before,2016-09-28,139,55
+TXH_15355_27073_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.833496355333548,-95.64971923828125,response,2017-08-30,139,55
+TXH_15355_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.64971923828125,before,2016-09-28,5,21
+TXH_15355_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.64971923828125,response,2017-08-30,5,21
+TXH_15355_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.64971923828125,before,2016-09-28,41,122
+TXH_15355_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.64971923828125,response,2017-08-30,41,122
+TXH_15355_27084_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.64971923828125,before,2016-09-28,4,23
+TXH_15355_27084_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78106561686911,-95.64971923828125,response,2017-08-30,4,23
+TXH_15355_27093_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.64971923828125,before,2016-09-28,12,33
+TXH_15355_27093_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.73814730560134,-95.64971923828125,response,2017-08-30,12,33
+TXH_15356_27071_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.843026263131424,-95.64422607421875,before,2016-09-28,211,160
+TXH_15356_27071_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.843026263131424,-95.64422607421875,response,2017-08-30,211,160
+TXH_15356_27072_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.838261422882184,-95.64422607421875,before,2016-09-28,156,238
+TXH_15356_27072_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.838261422882184,-95.64422607421875,response,2017-08-30,156,238
+TXH_15356_27074_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.82873106050763,-95.64422607421875,before,2016-09-28,1,16
+TXH_15356_27074_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.82873106050763,-95.64422607421875,response,2017-08-30,1,16
+TXH_15356_27075_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.64422607421875,before,2016-09-28,0,23
+TXH_15356_27075_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.64422607421875,response,2017-08-30,0,23
+TXH_15356_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.64422607421875,before,2016-09-28,2,49
+TXH_15356_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.64422607421875,response,2017-08-30,2,49
+TXH_15356_27077_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81443381258749,-95.64422607421875,before,2016-09-28,1,34
+TXH_15356_27077_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81443381258749,-95.64422607421875,response,2017-08-30,1,34
+TXH_15356_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.64422607421875,before,2016-09-28,61,151
+TXH_15356_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.64422607421875,response,2017-08-30,61,151
+TXH_15357_27069_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.63873291015625,before,2016-09-28,259,52
+TXH_15357_27069_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.63873291015625,response,2017-08-30,259,52
+TXH_15357_27070_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.847790876059165,-95.63873291015625,before,2016-09-28,251,51
+TXH_15357_27070_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.847790876059165,-95.63873291015625,response,2017-08-30,251,51
+TXH_15357_27074_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.82873106050763,-95.63873291015625,before,2016-09-28,5,49
+TXH_15357_27074_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.82873106050763,-95.63873291015625,response,2017-08-30,5,49
+TXH_15357_27075_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.63873291015625,before,2016-09-28,0,14
+TXH_15357_27075_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.63873291015625,response,2017-08-30,0,14
+TXH_15357_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.63873291015625,before,2016-09-28,10,23
+TXH_15357_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.63873291015625,response,2017-08-30,10,23
+TXH_15357_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.63873291015625,before,2016-09-28,11,48
+TXH_15357_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.63873291015625,response,2017-08-30,11,48
+TXH_15358_27068_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.857319419861724,-95.63323974609375,before,2016-09-28,159,26
+TXH_15358_27068_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.857319419861724,-95.63323974609375,response,2017-08-30,159,26
+TXH_15358_27069_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.63323974609375,before,2016-09-28,342,17
+TXH_15358_27069_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.63323974609375,response,2017-08-30,342,17
+TXH_15358_27070_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.847790876059165,-95.63323974609375,before,2016-09-28,342,19
+TXH_15358_27070_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.847790876059165,-95.63323974609375,response,2017-08-30,342,19
+TXH_15358_27075_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.63323974609375,before,2016-09-28,2,43
+TXH_15358_27075_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.63323974609375,response,2017-08-30,2,43
+TXH_15358_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.63323974609375,before,2016-09-28,0,24
+TXH_15358_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.63323974609375,response,2017-08-30,0,24
+TXH_15359_27068_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.857319419861724,-95.62774658203125,before,2016-09-28,200,29
+TXH_15359_27068_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.857319419861724,-95.62774658203125,response,2017-08-30,200,29
+TXH_15359_27069_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.62774658203125,before,2016-09-28,30,2
+TXH_15359_27069_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.62774658203125,response,2017-08-30,30,2
+TXH_15359_27075_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.62774658203125,before,2016-09-28,2,40
+TXH_15359_27075_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.62774658203125,response,2017-08-30,2,40
+TXH_15359_27083_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78583318324977,-95.62774658203125,before,2016-09-28,4,113
+TXH_15359_27083_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78583318324977,-95.62774658203125,response,2017-08-30,4,113
+TXH_15360_27068_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.857319419861724,-95.62225341796875,before,2016-09-28,157,17
+TXH_15360_27068_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.857319419861724,-95.62225341796875,response,2017-08-30,157,17
+TXH_15360_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.62225341796875,before,2016-09-28,1,14
+TXH_15360_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.62225341796875,response,2017-08-30,1,14
+TXH_15360_27083_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78583318324977,-95.62225341796875,before,2016-09-28,12,103
+TXH_15360_27083_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78583318324977,-95.62225341796875,response,2017-08-30,12,103
+TXH_15361_27075_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.61676025390625,before,2016-09-28,24,53
+TXH_15361_27075_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.61676025390625,response,2017-08-30,24,53
+TXH_15361_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.61676025390625,before,2016-09-28,5,20
+TXH_15361_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.61676025390625,response,2017-08-30,5,20
+TXH_15361_27083_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.78583318324977,-95.61676025390625,before,2016-09-28,23,320
+TXH_15361_27083_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.78583318324977,-95.61676025390625,response,2017-08-30,23,320
+TXH_15362_27071_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.843026263131424,-95.61126708984375,before,2016-09-28,12,14
+TXH_15362_27071_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.843026263131424,-95.61126708984375,response,2017-08-30,12,14
+TXH_15362_27075_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.61126708984375,before,2016-09-28,38,56
+TXH_15362_27075_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.823965538426563,-95.61126708984375,response,2017-08-30,38,56
+TXH_15362_27076_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.61126708984375,before,2016-09-28,13,96
+TXH_15362_27076_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.81919978911247,-95.61126708984375,response,2017-08-30,13,96
+TXH_15362_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.61126708984375,before,2016-09-28,19,95
+TXH_15362_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.61126708984375,response,2017-08-30,19,95
+TXH_15363_27069_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.60577392578125,before,2016-09-28,145,49
+TXH_15363_27069_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.852555261643296,-95.60577392578125,response,2017-08-30,145,49
+TXH_15363_27071_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.843026263131424,-95.60577392578125,before,2016-09-28,137,19
+TXH_15363_27071_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.843026263131424,-95.60577392578125,response,2017-08-30,137,19
+TXH_15364_27082_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.60028076171875,before,2016-09-28,11,66
+TXH_15364_27082_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.790600522574728,-95.60028076171875,response,2017-08-30,11,66
+TXH_15367_27080_before_20160928_USDA.png,Harris County,West Houston / Addicks and Barker,29.80013451996876,-95.58380126953125,before,2016-09-28,0,14
+TXH_15367_27080_after_20170830_NOAA.png,Harris County,West Houston / Addicks and Barker,29.80013451996876,-95.58380126953125,response,2017-08-30,0,14
