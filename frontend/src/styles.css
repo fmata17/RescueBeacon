@@ -211,3 +211,12 @@ a{color:inherit}
 .observation-marker.response{border-color:#dba79c}.observation-marker.response>span{border-color:#a34c43;background:#c76d60}
 .demo-base-marker{background:#fff;border:1px solid #9bafa1;border-radius:4px;color:#6e8976;display:grid;place-items:center;font-size:18px}
 .simulated-drone{background:#fff7f3;border:1px solid #bf786b;border-radius:50%;color:#9d5447;display:grid;place-items:center;font-size:23px;box-shadow:0 2px 8px #914a4326;transition:transform .2s linear}
+
+.review-actions{display:grid;gap:7px}
+.secondary-button{width:100%;min-height:34px;border:1px solid #d8e1da;border-radius:5px;background:#fff;color:#46645d;font-size:10px;padding:8px 10px}
+.secondary-button:hover{background:#f1f5f1}
+.secondary-button:disabled{color:#a0aba3;background:#f4f6f2;border-color:#e5e9e1;cursor:default}
+.outcome-strip.review{background:#fff8e8;border-color:#eadab6}
+.outcome-strip.review strong{color:#8d6928}
+.outcome-strip.review .outcome-icon{background:#f8edcf;color:#9a732b}
+.outcome-strip.review div>span{color:#a08a60}
