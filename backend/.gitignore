@@ -1,3 +1,6 @@
 node_modules/
 .env
 coverage/
+.venv/
+__pycache__/
+*.pyc

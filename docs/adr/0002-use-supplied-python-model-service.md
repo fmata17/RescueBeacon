@@ -1,0 +1,3 @@
+# Use the team's Python service and datathon model host
+
+The supplied FastAPI and OpenAI-client implementation is the canonical backend, replacing the earlier Node starter. It connects to the team's existing GB10 Qwen service on the datathon network, so inference is hosted on that machine rather than the frontend computer or an OpenAI cloud endpoint. Both image judgments are produced in one model request and exposed through the existing staged frontend contract; drone findings remain simulated. The four provided PNGs have no GPS metadata, so the user approved explicitly labeled illustrative Harris County map locations.
