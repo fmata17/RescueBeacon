@@ -19,6 +19,21 @@ export type Observation = {
   longitude: number | null;
 };
 
+export const localAssessment: AssessmentBoundary = async (request) => {
+  const response = await fetch('http://127.0.0.1:8787/api/assessments', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(request),
+  });
+  const result = await response.json();
+  if (!response.ok) throw new Error(typeof result?.error === 'string' ? result.error : `Local assessment failed (${response.status}).`);
+  if (!result || result.stage !== request.stage || !['yes', 'no', 'uncertain'].includes(result.finding)
+    || !['high', 'medium', 'low'].includes(result.confidence) || typeof result.reason !== 'string'
+    || !result.reason.trim() || result.reason.trim().length > 500 || result.source !== 'local-model') {
+    throw new Error('Invalid local assessment response. Retry the assessment.');
+  }
+  return { stage: result.stage, finding: result.finding, confidence: result.confidence, reason: result.reason.trim(), source: result.source };
+};
+
 export const demoAssessment: AssessmentBoundary = async ({ observationId, stage }) => {
   await new Promise((resolve) => setTimeout(resolve, 650));
   if (stage === 'flood' && observationId !== 'no-flood') return {
