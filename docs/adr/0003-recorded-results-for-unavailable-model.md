@@ -1,0 +1,3 @@
+# Preserve genuine recorded results when the demo model host is unavailable
+
+Live requests from this machine reproduce upstream HTTP408, and direct/proxy-aware authenticated models requests time out even though the Python API is healthy. After attempting connectivity and smaller uploads, the user allowed using saved Qwen results if live inference could not be restored. The four original notebook outputs are stored with their image hashes and concise normalized judgments; only exact matching images may use them, and the API and UI identify them as recorded results. A fresh-live request bypasses this fallback and exposes the real error. This makes the presentation usable without presenting a recorded answer as a new model response.

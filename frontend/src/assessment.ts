@@ -4,11 +4,13 @@ export type Assessment = {
   finding: 'yes' | 'no' | 'uncertain';
   confidence: 'high' | 'medium' | 'low';
   reason: string;
-  source: 'demo' | 'local-model' | 'simulated-drone';
+  source: 'demo' | 'local-model' | 'recorded-model' | 'simulated-drone';
+  notice?: string;
 };
 export type AssessmentBoundary = (request: {
   observationId: string;
   stage: AssessmentStage;
+  refresh?: boolean;
 }) => Promise<Assessment>;
 export type Observation = {
   id: string;
@@ -18,6 +20,7 @@ export type Observation = {
   latitude: number | null;
   longitude: number | null;
   locationSource?: 'illustrative' | 'metadata';
+  priority?: 'urgent' | 'warning' | 'clear';
 };
 
 export const localAssessment: AssessmentBoundary = async (request) => {
@@ -29,10 +32,10 @@ export const localAssessment: AssessmentBoundary = async (request) => {
   if (!response.ok) throw new Error(typeof result?.error === 'string' ? result.error : `Local assessment failed (${response.status}).`);
   if (!result || result.stage !== request.stage || !['yes', 'no', 'uncertain'].includes(result.finding)
     || !['high', 'medium', 'low'].includes(result.confidence) || typeof result.reason !== 'string'
-    || !result.reason.trim() || result.reason.trim().length > 500 || result.source !== 'local-model') {
+    || !result.reason.trim() || result.reason.trim().length > 500 || !['local-model', 'recorded-model'].includes(result.source)) {
     throw new Error('Invalid local assessment response. Retry the assessment.');
   }
-  return { stage: result.stage, finding: result.finding, confidence: result.confidence, reason: result.reason.trim(), source: result.source };
+  return { stage: result.stage, finding: result.finding, confidence: result.confidence, reason: result.reason.trim(), source: result.source, notice: typeof result.notice === 'string' ? result.notice : undefined };
 };
 
 export const demoAssessment: AssessmentBoundary = async ({ observationId, stage }) => {

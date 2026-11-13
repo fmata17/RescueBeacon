@@ -10,17 +10,14 @@ test('local mode submits the selected original image for flood screening and kee
   let finish!: (response: Response) => void;
   const fetch = vi.fn(() => new Promise<Response>((resolve) => { finish = resolve; }));
   vi.stubGlobal('fetch', fetch);
-  render(<App/>);
-  await user.selectOptions(screen.getByRole('combobox', { name: 'Assessment mode' }), 'local-model');
+  render(<App initialMode="local-model"/>);
   const details = screen.getByRole('region', { name: 'Observation details' });
   expect(within(details).getByText('Local model')).toBeVisible();
-  expect(screen.getByRole('combobox', { name: 'Assessment mode' })).toHaveValue('local-model');
   expect(within(details).queryByText('Demo · scripted')).not.toBeInTheDocument();
   expect(screen.queryByText('Scripted assessments. No live drone or emergency dispatch.')).not.toBeInTheDocument();
   await user.click(screen.getByRole('button', { name: 'Run analysis' }));
   expect(within(details).getByText('Screening this observation for flooding…')).toBeVisible();
-  expect(screen.getByRole('combobox', { name: 'Assessment mode' })).toBeDisabled();
-  expect(screen.getByRole('button', { name: 'Reset scenario' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Reset observation' })).toBeDisabled();
   expect(fetch).toHaveBeenCalledWith('/api/assessments', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ observationId: 'no-flood', stage: 'flood' }),
@@ -38,12 +35,12 @@ test('an assistance endpoint failure keeps the flood evidence and retries only t
     .mockResolvedValueOnce(Response.json({ error: 'inference_timeout' }, { status: 504 }))
     .mockResolvedValueOnce(Response.json({ stage: 'assistance', finding: 'yes', confidence: 'high', reason: 'A person is signaling for help.', source: 'local-model' }));
   vi.stubGlobal('fetch', fetch);
-  render(<App/>);
-  await user.selectOptions(screen.getByRole('combobox', { name: 'Assessment mode' }), 'local-model');
-  await user.selectOptions(screen.getByRole('combobox', { name: 'Scenario' }), 'assistance');
+  render(<App initialMode="local-model"/>);
+  await user.click(screen.getByRole('button', { name: 'View assistance' }));
   await user.click(screen.getByRole('button', { name: 'Run analysis' }));
   const details = screen.getByRole('region', { name: 'Observation details' });
   expect(await within(details).findByRole('alert')).toHaveTextContent('inference_timeout');
+  await user.click(within(details).getByText('Assessment details'));
   expect(within(details).getByText('Floodwater covers the roadway.')).toBeVisible();
   expect(within(details).getByText('Local model')).toBeVisible();
   expect(within(details).queryByText('Simulated response notification sent')).not.toBeInTheDocument();

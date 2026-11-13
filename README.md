@@ -12,13 +12,17 @@ npm run dev
 
 This creates the backend Python environment and installs dependencies on first use, then starts both servers. Open **http://127.0.0.1:5173**. Ctrl+C stops both. Requires Python 3.13/3.14 (the launcher prefers 3.14), Node 22.12+ or 24 LTS, and internet for the map tiles.
 
-The app opens in **Local model mode**. The backend uses the supplied datathon setup: `http://10.246.100.230/v1`, model `qwen3-vl-8b-instruct`, and the supplied datathon key. You must be on the network/VPN that can reach that GB10 server. Nothing downloads or loads model weights on this laptop. Override `LLM_BASE_URL`, `LLM_MODEL`, or `LLM_API_KEY` in your shell if your team's setup changes.
+The backend uses the supplied datathon setup: `http://10.246.100.230/v1`, model `qwen3-vl-8b-instruct`, and the supplied datathon key. You must be on a network/VPN that can reach that GB10 server. Override `LLM_BASE_URL`, `LLM_MODEL`, or `LLM_API_KEY` in your shell if the setup changes.
 
-Select a case and click **Run analysis**. One image upload produces both flood and assistance judgments; the UI displays them as two steps. The model's results determine the live path. **Demo mode** is an explicit scripted rehearsal option and never substitutes for a failed model call.
+Choose a photo from the map or bottom photo strip, then click **Run analysis**. The answer appears directly beneath the photo. Red hotspots indicate urgent support; yellow hotspots indicate drone investigation; gray hotspots need no response. Drone missions animate from the nearest hub, with the map focused on the flight. Assessment details and activity are collapsed beneath the main result.
+
+There is no assessment-mode switch or simulation banner. The app first checks the live model server. If it is unavailable, these four exact images can use the genuine Qwen responses saved in the original team notebook, visibly labeled **Recorded Qwen result**. These are hash-checked against the source image. **Request fresh live analysis** bypasses that fallback and reports any actual live failure. The model input is a compact JPEG; the displayed original PNG is unchanged.
+
+The root `npm run dev` command starts **both** FastAPI on port 8000 and Vite on port 5173. Running `npm run dev` only inside `frontend/` starts no backend. Avoid starting two copies: the root launcher checks for occupied ports and tells you to stop the older instance. Backend health is at `/api/health` through the frontend proxy.
 
 ## Four showcase cases
 
-| Case | Source image | Scripted rehearsal path |
+| Case | Source image | Showcase path |
 | --- | --- | --- |
 | No flood | `not_flooded.png` | Close without a drone |
 | Clear assistance need | `flooded_with_people.png` | Notify response; drone watches until presenter marks arrival |
@@ -27,7 +31,7 @@ Select a case and click **Run analysis**. One image upload produces both flood a
 
 All four images live in `images/`, mapped in its manifest. Their PNG metadata has no GPS; map points are **illustrative Harris County locations**, labeled simulated. Drone movement, later findings, response notifications, and arrival events are simulations. A live model may choose a different path than the rehearsal script; its answer is not overwritten to force the scenario.
 
-**Reset scenario** replays a case. Switching modes clears cases and history. Operator controls handle uncertain flood or drone results. A flooded car alone is possible danger, not proof that someone needs rescue.
+**Reset observation** replays the selected photo. Operator controls handle uncertain flood or drone results. A flooded car alone is possible danger, not proof that someone needs rescue.
 
 ## Structure
 

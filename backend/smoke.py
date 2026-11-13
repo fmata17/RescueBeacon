@@ -2,6 +2,8 @@
 import base64
 import json
 import sys
+from io import BytesIO
+from PIL import Image
 from pathlib import Path
 from unittest.mock import patch
 
@@ -13,14 +15,19 @@ from backend.main import app, IMAGE_FOLDER, MANIFEST_PATH
 entries = json.loads(MANIFEST_PATH.read_text())
 expected = {"no-flood": ("no", "no"), "assistance": ("yes", "yes"),
             "drone-clear": ("yes", "uncertain"), "operator-review": ("yes", "uncertain")}
-by_bytes = {base64.b64encode((IMAGE_FOLDER / item["image"]).read_bytes()).decode(): item["id"] for item in entries}
 calls = []
 
 
 def model_server(request):
+    if request.method == 'GET':
+        return httpx.Response(200, json={"object": "list", "data": []})
     payload = json.loads(request.content)
     encoded = payload["messages"][1]["content"][1]["image_url"]["url"].split(",", 1)[1]
-    observation_id = by_bytes[encoded]
+    image_bytes = base64.b64decode(encoded)
+    assert len(image_bytes) < 300000
+    with Image.open(BytesIO(image_bytes)) as image:
+        assert image.format == 'JPEG' and max(image.size) <= 1536
+    observation_id = entries[len(calls)]["id"]
     calls.append(observation_id)
     flood, assistance = expected[observation_id]
     result = {stage: {"assessment": value, "confidence": "medium" if value == "uncertain" else "high",
