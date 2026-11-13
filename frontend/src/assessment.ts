@@ -19,8 +19,12 @@ export type Observation = {
   longitude: number | null;
 };
 
-export const demoAssessment: AssessmentBoundary = async () => {
+export const demoAssessment: AssessmentBoundary = async ({ observationId, stage }) => {
   await new Promise((resolve) => setTimeout(resolve, 650));
+  if (observationId === 'assistance') return {
+    stage, finding: 'yes', confidence: 'high', source: 'demo',
+    reason: stage === 'flood' ? 'Floodwater surrounds this scripted observation.' : 'A person is signaling for help in this scripted observation.',
+  };
   return {
     stage: 'flood', finding: 'no', confidence: 'high', source: 'demo',
     reason: 'No floodwater is visible in this scripted observation. The roadway is clear.',
