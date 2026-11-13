@@ -38,7 +38,7 @@ export function startDroneMission(observation: Observation, purpose: DroneMissio
 
 export const missionLabel = (mission: DroneMission) => ({
   'en-route': 'En route', inspecting: 'Inspecting observation',
-  'on-site': mission.purpose === 'response' ? 'On site · awaiting response team' : 'Inspection complete',
+  'on-site': mission.purpose === 'response' ? 'On site · awaiting response team' : 'On site · awaiting operator decision',
   complete: mission.purpose === 'response' ? 'Mission complete · response team arrived' : 'Mission complete · No assistance needed',
 })[mission.phase];
 
