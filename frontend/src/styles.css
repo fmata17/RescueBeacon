@@ -185,3 +185,22 @@ a{color:inherit}
 .observation-marker.closed{border-color:#b6c1c7}
 .observation-marker.closed>span{border-color:#657c87;background:#8b9aa3}
 
+
+.case-status.response,.case-status.arrived{color:#a24f47}
+.case-status.response .status-dot,.case-status.arrived .status-dot{background:#b8564d}
+.outcome-strip.response,.outcome-strip.arrived{background:#fff2ef;border-color:#edd3cd}
+.outcome-strip.response strong,.outcome-strip.arrived strong{color:#a04f46}
+.outcome-strip.response .outcome-icon,.outcome-strip.arrived .outcome-icon{color:#ac5f52;background:#f6e2dc}
+.outcome-strip.response div>span,.outcome-strip.arrived div>span{color:#ae7e74}
+.response-notice{margin:20px 0 12px;padding:13px;border:1px solid #ecd4cc;background:#fff5f0;border-radius:5px;color:#a65c51;font-size:10px;line-height:1.6}
+.response-notice strong{font-weight:600}.response-notice p{font-size:9px;margin:4px 0 0}
+.mission-card{background:#f7f8f5;border:1px solid #e3e8dd;border-radius:5px;padding:13px;color:#7d8d78}
+.mission-heading{display:flex;gap:6px;align-items:center}.mission-heading h3{margin:0;font-size:10px;font-weight:600;color:#5e7759}
+.mission-heading>span{margin-left:auto;font-size:6px;letter-spacing:.8px;border:1px solid #dce5d6;border-radius:3px;padding:3px 4px}
+.mission-status{display:block;font-size:10px;color:#546e50;margin:12px 0 8px;font-weight:550}
+.mission-card p{font-size:9px;line-height:1.7;margin:3px 0}.mission-card a{font-size:8px;color:#7a9473}.mission-card .mission-disclaimer{font-size:8px;color:#9aa793;margin-top:10px}
+.primary-button.response-button{background:#a65c51}.primary-button.response-button:disabled{background:#f1eae4;color:#b89a8e}
+.response-complete{color:#a46358;background:#fbf0eb;border-color:#eedbd2}
+.observation-marker.response{border-color:#dba79c}.observation-marker.response>span{border-color:#a34c43;background:#c76d60}
+.demo-base-marker{background:#fff;border:1px solid #9bafa1;border-radius:4px;color:#6e8976;display:grid;place-items:center;font-size:18px}
+.simulated-drone{background:#fff7f3;border:1px solid #bf786b;border-radius:50%;color:#9d5447;display:grid;place-items:center;font-size:23px;box-shadow:0 2px 8px #914a4326;transition:transform .2s linear}
