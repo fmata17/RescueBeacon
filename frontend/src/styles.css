@@ -62,6 +62,13 @@ a{color:inherit}
 .case-status.analyzing{color:#338478}
 .case-status.review{color:#aa7d2a}
 .case-status.review .status-dot{background:#d5a148}
+.case-status.possible-danger{color:#aa7d2a}
+.case-status.possible-danger .status-dot{background:#d5a148}
+.outcome-strip.possible-danger{background:#fff9eb;border-color:#eadfc2}
+.outcome-strip.possible-danger strong{color:#946a21}
+.outcome-strip.possible-danger div>span{color:#9b814e}
+.inspection-action{background:#fff9eb;border-color:#eadfc2;color:#946a21}
+.drone-assessment{margin-bottom:20px}
 .queue-footer{margin-top:auto;display:flex;align-items:center;gap:10px;color:#8d9990;padding:24px 0 21px;font-size:9px;line-height:1.6}
 .queue-footer p{margin:0}
 .map-section{position:relative;isolation:isolate;overflow:hidden;background:#e9ede4}

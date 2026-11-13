@@ -4,6 +4,43 @@ import { expect, test, vi } from 'vitest';
 import App from './App';
 import type { Assessment, AssessmentBoundary } from './assessment';
 
+test('a flooded car stays possible danger until a simulated drone clears assistance, retaining the closed evidence and history', async () => {
+  const clock = vi.spyOn(Date, 'now').mockReturnValue(1000);
+  try {
+    const user = userEvent.setup();
+    render(<App observations={[
+      { id: 'drone-clear', title: 'Flooded car', scenario: 'drone-clear', image: null, latitude: 29.83, longitude: -95.43 },
+      { id: 'no-flood', title: 'Other observation', scenario: 'no-flood', image: null, latitude: null, longitude: null },
+    ]}/>);
+    await user.click(screen.getByRole('button', { name: 'Run analysis' }));
+    const details = screen.getByRole('region', { name: 'Observation details' });
+    expect(await within(details).findByText('Flooding detected')).toBeVisible();
+    expect(await within(details).findByText('Possible danger · Drone inspection')).toBeVisible();
+    expect(within(details).getByText('A flooded vehicle is visible, but the initial image does not establish whether anyone needs help.')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Flooded car · Possible danger · Drone inspection · 29.83, -95.43' })).toHaveClass('pending');
+    expect(within(details).queryByText('Simulated response notification sent')).not.toBeInTheDocument();
+    expect(within(details).queryByRole('button', { name: 'Run analysis' })).not.toBeInTheDocument();
+    clock.mockReturnValue(5500);
+    expect(await within(details).findByText('Inspecting observation')).toBeVisible();
+    expect(within(details).getByText('Simulated drone inspection: maintaining a view of the observation.')).toBeVisible();
+    clock.mockReturnValue(8000);
+    expect(await within(details).findByText('Closed · No response needed')).toBeVisible();
+    expect(within(details).getByText('Mission complete · No assistance needed')).toBeVisible();
+    expect(within(details).getByText('SIMULATED DRONE')).toBeVisible();
+    expect(within(details).getByText('No assistance needed')).toBeVisible();
+    expect(within(details).getByText('The scripted drone inspection finds no one needing assistance near the flooded vehicle.')).toBeVisible();
+    expect(within(details).getAllByText('High confidence')).toHaveLength(2);
+    expect(within(details).getByText('Case closed. No response needed after simulated drone inspection.')).toBeVisible();
+    expect(within(details).queryByText(/remains on site until/)).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Flooded car · Closed · No response needed · 29.83, -95.43' })).toHaveClass('closed');
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Scenario' }), 'no-flood');
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Scenario' }), 'drone-clear');
+    expect(within(details).getByText('Closed · No response needed')).toBeVisible();
+    expect(within(details).getByText('A flooded vehicle is visible, but the initial image does not establish whether anyone needs help.')).toBeVisible();
+    expect(within(details).getByText('Case closed. No response needed after simulated drone inspection.')).toBeVisible();
+  } finally { clock.mockRestore(); }
+});
+
 test('a clear assistance finding follows flood screening and automatically notifies simulated response', async () => {
   const user = userEvent.setup();
   let finishAssistance!: (result: Assessment) => void;

@@ -21,12 +21,30 @@ export type Observation = {
 
 export const demoAssessment: AssessmentBoundary = async ({ observationId, stage }) => {
   await new Promise((resolve) => setTimeout(resolve, 650));
-  if (observationId === 'assistance') return {
+  if (stage === 'flood' && observationId !== 'no-flood') return {
     stage, finding: 'yes', confidence: 'high', source: 'demo',
-    reason: stage === 'flood' ? 'Floodwater surrounds this scripted observation.' : 'A person is signaling for help in this scripted observation.',
+    reason: 'Floodwater surrounds this scripted observation.',
+  };
+  if (stage === 'assistance' && observationId === 'assistance') return {
+    stage, finding: 'yes', confidence: 'high', source: 'demo',
+    reason: 'A person is signaling for help in this scripted observation.',
+  };
+  if (stage === 'assistance' && observationId !== 'no-flood') return {
+    stage, finding: 'uncertain', confidence: 'medium', source: 'demo',
+    reason: 'A flooded vehicle is visible, but the initial image does not establish whether anyone needs help.',
   };
   return {
-    stage: 'flood', finding: 'no', confidence: 'high', source: 'demo',
+    stage, finding: 'no', confidence: 'high', source: 'demo',
     reason: 'No floodwater is visible in this scripted observation. The roadway is clear.',
   };
 };
+
+export function simulatedDroneAssessment(scenario: Observation['scenario']): Assessment {
+  return scenario === 'drone-clear' ? {
+    stage: 'assistance', finding: 'no', confidence: 'high', source: 'simulated-drone',
+    reason: 'The scripted drone inspection finds no one needing assistance near the flooded vehicle.',
+  } : {
+    stage: 'assistance', finding: 'uncertain', confidence: 'medium', source: 'simulated-drone',
+    reason: 'The scripted drone inspection cannot establish whether assistance is needed.',
+  };
+}
