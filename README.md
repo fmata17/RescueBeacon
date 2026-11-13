@@ -1,38 +1,39 @@
 # RescueBeacon
 
-A Harris County flood observation demo. All assessments in Demo mode are scripted; no real drone, emergency dispatch, or notification service is connected.
+Harris County flood-response showcase using four supplied images, a locally hosted Qwen vision-language model, and simulated drone missions.
 
-## Run the frontend
+## Run everything
 
-Use Node 22.12+ in the Node 22 line, Node 24, or a later supported LTS. The current build and test tools follow their supported Node versions.
+From the repository root:
 
 ```sh
-cd frontend
-npm ci
 npm run dev
 ```
 
-Open the URL printed by Vite. The desktop console uses OpenStreetMap tiles and needs internet for the basemap. Its workflow runs without those tiles. Run `npm test` and `npm run build` from `frontend/` to verify changes.
+This creates the backend Python environment and installs dependencies on first use, then starts both servers. Open **http://127.0.0.1:5173**. Ctrl+C stops both. Requires Python 3.13/3.14 (the launcher prefers 3.14), Node 22.12+ or 24 LTS, and internet for the map tiles.
 
-Choose **Demo mode**, select a scenario, and click **Run analysis** for each presentation path:
+The app opens in **Local model mode**. The backend uses the supplied datathon setup: `http://10.246.100.230/v1`, model `qwen3-vl-8b-instruct`, and the supplied datathon key. You must be on the network/VPN that can reach that GB10 server. Nothing downloads or loads model weights on this laptop. Override `LLM_BASE_URL`, `LLM_MODEL`, or `LLM_API_KEY` in your shell if your team's setup changes.
 
-1. **No flood** closes after high-confidence flood screening with no mission or response.
-2. **Clear assistance need** shows separate flood and assistance findings, automatically records a simulated response notification, and keeps the simulated drone on site until **Mark response team arrived**.
-3. **Drone clears the case** sends a simulated inspection after uncertain initial assistance evidence; its scripted finding closes with no response needed.
-4. **Operator review** sends a simulated inspection and stops awaiting an operator decision. Choose assistance needed, close with no response needed, or retry the scripted drone assessment once. Recommending response keeps the drone on site until simulated arrival.
+Select a case and click **Run analysis**. One image upload produces both flood and assistance judgments; the UI displays them as two steps. The model's results determine the live path. **Demo mode** is an explicit scripted rehearsal option and never substitutes for a failed model call.
 
-**Reset scenario** clears the selected case, its mission, and its history so the presenter can replay it. Changing assessment mode clears every case and history so results from different sources cannot mix. Mode changes and resets are disabled while any initial-image request is pending; switching observations still preserves results in the correct case.
+## Four showcase cases
 
-Uncertain or lower-confidence flood findings wait for the operator to confirm flood, mark no flood, or retry flood assessment once through the active assessment source. Confirming flood continues assistance analysis. Only definite high-confidence findings make automatic decisions. Reasons, confidence, original assessments, retry history, and operator actions remain accessible when switching observations. Curated image assets and coordinates are pending and explicitly labeled. Missing coordinates keep mission messages scripted without inventing a base assignment, distance, or geographic route.
+| Case | Source image | Scripted rehearsal path |
+| --- | --- | --- |
+| No flood | `not_flooded.png` | Close without a drone |
+| Clear assistance need | `flooded_with_people.png` | Notify response; drone watches until presenter marks arrival |
+| Drone clears the case | `flooded_with_cars.png` | Possible danger; simulated inspection closes with no response |
+| Operator review | `flooded_with_cars2.png` | Possible danger; simulated inspection requests an operator decision |
 
-For **Local model mode**, start a local OpenAI-compatible vision server, then run the independent backend in another terminal:
+All four images live in `images/`, mapped in its manifest. Their PNG metadata has no GPS; map points are **illustrative Harris County locations**, labeled simulated. Drone movement, later findings, response notifications, and arrival events are simulations. A live model may choose a different path than the rehearsal script; its answer is not overwritten to force the scenario.
 
-```sh
-cd backend
-npm ci
-LOCAL_MODEL_NAME=your-local-vision-model LOCAL_MODEL_BASE_URL=http://127.0.0.1:1234/v1 npm start
-```
+**Reset scenario** replays a case. Switching modes clears cases and history. Operator controls handle uncertain flood or drone results. A flooded car alone is possible danger, not proof that someone needs rescue.
 
-Leave the frontend running and select **Local model mode**. The browser posts `{ observationId, stage }` to `http://127.0.0.1:8787/api/assessments`; the backend resolves the original image. Flood and assistance responses drive the same workflow, so the model's findings determine the path. Local results are labeled before, during, and after analysis. HTTP failures, unavailable images, malformed output, and network failures remain visible errors with **Retry analysis**. Retry repeats the failed stage; no Demo answer is substituted. Later drone findings, retries, notifications, and arrival events always remain scripted simulations.
+## Structure
 
-Curated image assets and coordinates are still pending: the current manifest contains placeholders, so Local model mode reports `image_unavailable` until real original images are supplied. Follow the [image handoff](images/README.md) to add them; no locations are invented. See [backend configuration and checks](backend/README.md), [the assessment contract](docs/assessment-contract.md), and [architectural decision](docs/adr/0001-frontend-workflow-local-model-boundary.md). The default backend CORS origins support Vite on `localhost:5173` and `127.0.0.1:5173`; configure `FRONTEND_ORIGINS` for another frontend origin.
+- `frontend/`: React, TypeScript, Vite, map and case workflow.
+- `backend/main.py`: canonical FastAPI image assessment service.
+- `backend/notebooks/`: development notebook importing that same service.
+- `images/`: the four original PNGs and scenario/location manifest.
+
+For separate server commands and model configuration, see [backend setup](backend/README.md). The [assessment contract](docs/assessment-contract.md) documents the HTTP handoff. Verify the UI build with `npm run build`; verify images with `node scripts/validate-images.mjs --require-complete`.

@@ -21,7 +21,7 @@ test('local mode submits the selected original image for flood screening and kee
   expect(within(details).getByText('Screening this observation for flooding…')).toBeVisible();
   expect(screen.getByRole('combobox', { name: 'Assessment mode' })).toBeDisabled();
   expect(screen.getByRole('button', { name: 'Reset scenario' })).toBeDisabled();
-  expect(fetch).toHaveBeenCalledWith('http://127.0.0.1:8787/api/assessments', {
+  expect(fetch).toHaveBeenCalledWith('/api/assessments', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ observationId: 'no-flood', stage: 'flood' }),
   });
@@ -50,5 +50,5 @@ test('an assistance endpoint failure keeps the flood evidence and retries only t
   await user.click(within(details).getByRole('button', { name: 'Retry analysis' }));
   expect(await within(details).findByText('Response recommended')).toBeVisible();
   expect(within(details).getByText('A person is signaling for help.')).toBeVisible();
-  expect(fetch).toHaveBeenLastCalledWith('http://127.0.0.1:8787/api/assessments', expect.objectContaining({ body: JSON.stringify({ observationId: 'assistance', stage: 'assistance' }) }));
+  expect(fetch).toHaveBeenLastCalledWith('/api/assessments', expect.objectContaining({ body: JSON.stringify({ observationId: 'assistance', stage: 'assistance' }) }));
 });

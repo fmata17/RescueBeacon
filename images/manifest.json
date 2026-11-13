@@ -1,6 +1,6 @@
 [
-  { "id": "no-flood", "title": "No flood", "scenario": "no-flood", "image": null, "latitude": null, "longitude": null },
-  { "id": "assistance", "title": "Clear assistance need", "scenario": "assistance", "image": null, "latitude": null, "longitude": null },
-  { "id": "drone-clear", "title": "Drone clears the case", "scenario": "drone-clear", "image": null, "latitude": null, "longitude": null },
-  { "id": "operator-review", "title": "Operator review", "scenario": "operator-review", "image": null, "latitude": null, "longitude": null }
+  { "id": "no-flood", "title": "No flood", "scenario": "no-flood", "image": "not_flooded.png", "latitude": 29.825, "longitude": -95.475, "locationSource": "illustrative" },
+  { "id": "assistance", "title": "Clear assistance need", "scenario": "assistance", "image": "flooded_with_people.png", "latitude": 29.768, "longitude": -95.352, "locationSource": "illustrative" },
+  { "id": "drone-clear", "title": "Drone clears the case", "scenario": "drone-clear", "image": "flooded_with_cars.png", "latitude": 29.794, "longitude": -95.423, "locationSource": "illustrative" },
+  { "id": "operator-review", "title": "Operator review", "scenario": "operator-review", "image": "flooded_with_cars2.png", "latitude": 29.716, "longitude": -95.412, "locationSource": "illustrative" }
 ]
