@@ -12,6 +12,7 @@ export const droneBases: DroneBase[] = [
 ];
 
 export type DroneMission = {
+  purpose: 'response' | 'inspection';
   phase: 'en-route' | 'inspecting' | 'on-site' | 'complete';
   startedAt: number;
   progress: number;
@@ -26,18 +27,19 @@ function distanceKm(a: Coordinate, b: Coordinate) {
   return 6371 * 2 * Math.atan2(Math.sqrt(arc), Math.sqrt(1 - arc));
 }
 
-export function startDroneMission(observation: Observation): DroneMission {
+export function startDroneMission(observation: Observation, purpose: DroneMission['purpose'] = 'response'): DroneMission {
   let assignment: DroneMission['assignment'] = null;
   if (observation.latitude !== null && observation.longitude !== null) {
     const destination: Coordinate = [observation.latitude, observation.longitude];
     assignment = droneBases.map((base) => ({ base, destination, distanceKm: distanceKm(base.position, destination) })).sort((a, b) => a.distanceKm - b.distanceKm)[0];
   }
-  return { phase: 'en-route', startedAt: Date.now(), progress: 0, assignment };
+  return { purpose, phase: 'en-route', startedAt: Date.now(), progress: 0, assignment };
 }
 
 export const missionLabel = (mission: DroneMission) => ({
   'en-route': 'En route', inspecting: 'Inspecting observation',
-  'on-site': 'On site · awaiting response team', complete: 'Mission complete · response team arrived',
+  'on-site': mission.purpose === 'response' ? 'On site · awaiting response team' : 'Inspection complete',
+  complete: mission.purpose === 'response' ? 'Mission complete · response team arrived' : 'Mission complete · No assistance needed',
 })[mission.phase];
 
 // Fixed presentation pacing, unrelated to distance or real travel time.
@@ -48,6 +50,6 @@ export function advanceDroneMission(mission: DroneMission, now: number): { missi
   const progress = Math.min(1, elapsed / 4000);
   const events: string[] = [];
   if (mission.phase === 'en-route' && phase !== 'en-route') events.push('Simulated drone inspection: maintaining a view of the observation.');
-  if (phase === 'on-site') events.push('Simulated drone remains on site until the presenter marks response team arrival.');
+  if (phase === 'on-site' && mission.purpose === 'response') events.push('Simulated drone remains on site until the presenter marks response team arrival.');
   return { mission: { ...mission, phase, progress }, events };
 }
