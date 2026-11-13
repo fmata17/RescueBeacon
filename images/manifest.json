@@ -1,0 +1,6 @@
+[
+  { "id": "no-flood", "title": "No flood", "scenario": "no-flood", "image": null, "latitude": null, "longitude": null },
+  { "id": "assistance", "title": "Clear assistance need", "scenario": "assistance", "image": null, "latitude": null, "longitude": null },
+  { "id": "drone-clear", "title": "Drone clears the case", "scenario": "drone-clear", "image": null, "latitude": null, "longitude": null },
+  { "id": "operator-review", "title": "Operator review", "scenario": "operator-review", "image": null, "latitude": null, "longitude": null }
+]
