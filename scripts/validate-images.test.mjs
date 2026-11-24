@@ -7,9 +7,15 @@ import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 
 const command = fileURLToPath(new URL('./validate-images.mjs', import.meta.url));
-const placeholders = () => ['no-flood', 'assistance', 'drone-clear', 'operator-review'].map((scenario) => ({
-  id: scenario, title: scenario, scenario, image: null, latitude: null, longitude: null,
-}));
+const placeholders = () =>
+  ['no-flood', 'assistance', 'drone-clear', 'operator-review'].map((scenario) => ({
+    id: scenario,
+    title: scenario,
+    scenario,
+    image: null,
+    latitude: null,
+    longitude: null,
+  }));
 
 function handoff(t, observations = placeholders()) {
   const directory = mkdtempSync(join(tmpdir(), 'rescuebeacon-images-'));
@@ -19,7 +25,9 @@ function handoff(t, observations = placeholders()) {
   return {
     directory,
     run: (...args) => {
-      const result = spawnSync(process.execPath, [command, '--manifest', manifest, ...args], { encoding: 'utf8' });
+      const result = spawnSync(process.execPath, [command, '--manifest', manifest, ...args], {
+        encoding: 'utf8',
+      });
       return { code: result.status, report: JSON.parse(result.stdout) };
     },
   };
@@ -32,16 +40,24 @@ test('a placeholder handoff is valid and explicitly pending, but cannot pass rel
   assert.equal(report.status, 'pending');
   assert.deepEqual(report.errors, []);
   assert.equal(report.observations.length, 4);
-  assert.deepEqual(report.observations[0], { id: 'no-flood', status: 'pending', pending: ['image', 'coordinates'] });
+  assert.deepEqual(report.observations[0], {
+    id: 'no-flood',
+    status: 'pending',
+    pending: ['image', 'coordinates'],
+  });
   assert.equal(fixture.run('--require-complete').code, 2);
 });
 
 test('a complete handoff preserves all four supplied images and coordinates as ready', (t) => {
   const observations = placeholders().map((observation) => ({
-    ...observation, image: `${observation.id}.jpg`, latitude: 29.75, longitude: -95.36,
+    ...observation,
+    image: `${observation.id}.jpg`,
+    latitude: 29.75,
+    longitude: -95.36,
   }));
   const fixture = handoff(t, observations);
-  for (const observation of observations) writeFileSync(join(fixture.directory, observation.image), 'test image bytes');
+  for (const observation of observations)
+    writeFileSync(join(fixture.directory, observation.image), 'test image bytes');
   const { code, report } = fixture.run('--require-complete');
   assert.equal(code, 0);
   assert.equal(report.status, 'ready');
@@ -56,10 +72,25 @@ test('a complete handoff preserves all four supplied images and coordinates as r
 test('missing, duplicate, or reassigned scenarios are invalid rather than pending', async (t) => {
   for (const [name, change] of [
     ['missing observation', (items) => items.pop()],
-    ['reassigned scenario', (items) => { items[0].scenario = 'assistance'; }],
-    ['duplicate identifier', (items) => { items[1].id = 'no-flood'; }],
+    [
+      'reassigned scenario',
+      (items) => {
+        items[0].scenario = 'assistance';
+      },
+    ],
+    [
+      'duplicate identifier',
+      (items) => {
+        items[1].id = 'no-flood';
+      },
+    ],
     ['extra observation', (items) => items.push({ ...items[0] })],
-    ['missing title', (items) => { items[0].title = ''; }],
+    [
+      'missing title',
+      (items) => {
+        items[0].title = '';
+      },
+    ],
   ]) {
     await t.test(name, (t) => {
       const observations = placeholders();
@@ -73,7 +104,14 @@ test('missing, duplicate, or reassigned scenarios are invalid rather than pendin
 });
 
 test('coordinates must be a supplied valid pair, never a partial or coerced location', async (t) => {
-  for (const [latitude, longitude] of [[29.75, null], [null, -95.36], ['29.75', -95.36], [91, -95.36], [29.75, -181], [undefined, undefined]]) {
+  for (const [latitude, longitude] of [
+    [29.75, null],
+    [null, -95.36],
+    ['29.75', -95.36],
+    [91, -95.36],
+    [29.75, -181],
+    [undefined, undefined],
+  ]) {
     await t.test(`${latitude}, ${longitude}`, (t) => {
       const observations = placeholders();
       Object.assign(observations[0], { latitude, longitude });
@@ -86,13 +124,28 @@ test('coordinates must be a supplied valid pair, never a partial or coerced loca
 });
 
 test('a supplied image must exist as a file contained within the image handoff directory', async (t) => {
-  for (const image of ['absent.jpg', '../outside.jpg', '/tmp/outside.jpg', 'https://example.com/image.jpg', 'nested/../image.jpg', 'linked.jpg', 'directory', '', 12, undefined]) {
+  for (const image of [
+    'absent.jpg',
+    '../outside.jpg',
+    '/tmp/outside.jpg',
+    'https://example.com/image.jpg',
+    'nested/../image.jpg',
+    'linked.jpg',
+    'directory',
+    '',
+    12,
+    undefined,
+  ]) {
     await t.test(String(image), (t) => {
       const observations = placeholders();
       observations[0].image = image;
       const fixture = handoff(t, observations);
       mkdirSync(join(fixture.directory, 'directory'));
-      const outside = join(fixture.directory, '../', `outside-${fixture.directory.split('/').pop()}.jpg`);
+      const outside = join(
+        fixture.directory,
+        '../',
+        `outside-${fixture.directory.split('/').pop()}.jpg`,
+      );
       writeFileSync(outside, 'outside handoff');
       t.after(() => rmSync(outside));
       symlinkSync(outside, join(fixture.directory, 'linked.jpg'));
@@ -138,7 +191,11 @@ test('nested image paths and a supplied zero coordinate remain valid without inv
   assert.equal(code, 0);
   assert.equal(report.status, 'pending');
   assert.deepEqual(report.observations[0], { id: 'no-flood', status: 'ready', pending: [] });
-  assert.deepEqual(report.observations[1], { id: 'assistance', status: 'pending', pending: ['image'] });
+  assert.deepEqual(report.observations[1], {
+    id: 'assistance',
+    status: 'pending',
+    pending: ['image'],
+  });
 });
 
 test('a mistyped readiness flag fails rather than silently treating a pending handoff as complete', (t) => {

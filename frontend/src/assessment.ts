@@ -25,45 +25,94 @@ export type Observation = {
 
 export const localAssessment: AssessmentBoundary = async (request) => {
   const response = await fetch('/api/assessments', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(request),
   });
-  const result = await response.json();
-  if (!response.ok) throw new Error(typeof result?.error === 'string' ? result.error : `Local assessment failed (${response.status}).`);
-  if (!result || result.stage !== request.stage || !['yes', 'no', 'uncertain'].includes(result.finding)
-    || !['high', 'medium', 'low'].includes(result.confidence) || typeof result.reason !== 'string'
-    || !result.reason.trim() || result.reason.trim().length > 500 || !['local-model', 'recorded-model'].includes(result.source)) {
+  const result = await response.json().catch(() => {
+    throw new Error(
+      `The assessment API returned an empty or invalid response (${response.status}). Start both services with npm run dev from the repository root, then retry.`,
+    );
+  });
+  if (!response.ok)
+    throw new Error(
+      typeof result?.error === 'string'
+        ? result.error
+        : `Local assessment failed (${response.status}).`,
+    );
+  if (
+    !result ||
+    result.stage !== request.stage ||
+    !['yes', 'no', 'uncertain'].includes(result.finding) ||
+    !['high', 'medium', 'low'].includes(result.confidence) ||
+    typeof result.reason !== 'string' ||
+    !result.reason.trim() ||
+    result.reason.trim().length > 500 ||
+    !['local-model', 'recorded-model'].includes(result.source)
+  ) {
     throw new Error('Invalid local assessment response. Retry the assessment.');
   }
-  return { stage: result.stage, finding: result.finding, confidence: result.confidence, reason: result.reason.trim(), source: result.source, notice: typeof result.notice === 'string' ? result.notice : undefined };
+  return {
+    stage: result.stage,
+    finding: result.finding,
+    confidence: result.confidence,
+    reason: result.reason.trim(),
+    source: result.source,
+    notice: typeof result.notice === 'string' ? result.notice : undefined,
+  };
 };
 
 export const demoAssessment: AssessmentBoundary = async ({ observationId, stage }) => {
   await new Promise((resolve) => setTimeout(resolve, 650));
-  if (stage === 'flood' && observationId !== 'no-flood') return {
-    stage, finding: 'yes', confidence: 'high', source: 'demo',
-    reason: 'Floodwater surrounds this scripted observation.',
-  };
-  if (stage === 'assistance' && observationId === 'assistance') return {
-    stage, finding: 'yes', confidence: 'high', source: 'demo',
-    reason: 'A person is signaling for help in this scripted observation.',
-  };
-  if (stage === 'assistance' && observationId !== 'no-flood') return {
-    stage, finding: 'uncertain', confidence: 'medium', source: 'demo',
-    reason: 'A flooded vehicle is visible, but the initial image does not establish whether anyone needs help.',
-  };
+  if (stage === 'flood' && observationId !== 'no-flood')
+    return {
+      stage,
+      finding: 'yes',
+      confidence: 'high',
+      source: 'demo',
+      reason: 'Floodwater surrounds this scripted observation.',
+    };
+  if (stage === 'assistance' && observationId === 'assistance')
+    return {
+      stage,
+      finding: 'yes',
+      confidence: 'high',
+      source: 'demo',
+      reason: 'A person is signaling for help in this scripted observation.',
+    };
+  if (stage === 'assistance' && observationId !== 'no-flood')
+    return {
+      stage,
+      finding: 'uncertain',
+      confidence: 'medium',
+      source: 'demo',
+      reason:
+        'A flooded vehicle is visible, but the initial image does not establish whether anyone needs help.',
+    };
   return {
-    stage, finding: 'no', confidence: 'high', source: 'demo',
+    stage,
+    finding: 'no',
+    confidence: 'high',
+    source: 'demo',
     reason: 'No floodwater is visible in this scripted observation. The roadway is clear.',
   };
 };
 
 export function simulatedDroneAssessment(scenario: Observation['scenario']): Assessment {
-  return scenario === 'drone-clear' ? {
-    stage: 'assistance', finding: 'no', confidence: 'high', source: 'simulated-drone',
-    reason: 'The scripted drone inspection finds no one needing assistance near the flooded vehicle.',
-  } : {
-    stage: 'assistance', finding: 'uncertain', confidence: 'medium', source: 'simulated-drone',
-    reason: 'The scripted drone inspection cannot establish whether assistance is needed.',
-  };
+  return scenario === 'drone-clear'
+    ? {
+        stage: 'assistance',
+        finding: 'no',
+        confidence: 'high',
+        source: 'simulated-drone',
+        reason:
+          'The scripted drone inspection finds no one needing assistance near the flooded vehicle.',
+      }
+    : {
+        stage: 'assistance',
+        finding: 'uncertain',
+        confidence: 'medium',
+        source: 'simulated-drone',
+        reason: 'The scripted drone inspection cannot establish whether assistance is needed.',
+      };
 }

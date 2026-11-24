@@ -1,8 +1,29 @@
 # RescueBeacon
 
-Harris County flood-response showcase using four supplied images, a locally hosted Qwen vision-language model, and simulated drone missions.
+A flood-response demonstration that combines image assessment, an interactive Harris County map, and simulated drone missions. RescueBeacon helps an operator review flooding, distinguish possible danger from a confirmed need for assistance, and decide what happens next.
 
-## Run everything
+The app uses a privately hosted Qwen vision-language model. When that server is unavailable, the four supplied images can use genuine, hash-verified model results saved from the original team notebook. Recorded results are visibly labeled; drone missions and response notifications are simulated.
+
+## Features
+
+- Review four geolocated observations through an interactive map and photo strip.
+- Assess flooding and assistance separately, with visible reasons, confidence, and result provenance.
+- Follow simulated drone inspections from the nearest illustrative base.
+- Resolve uncertain findings through operator review, with a history of assessments and decisions.
+- Retry failed analysis or request a fresh live result instead of a recorded result.
+
+## Technology
+
+| Layer | Tools |
+| --- | --- |
+| Frontend | React, TypeScript, Vite, Leaflet, Lucide |
+| API | Python, FastAPI, Pydantic, HTTPX, Pillow |
+| Model integration | OpenAI-compatible Python client and a privately hosted Qwen service |
+| Verification | Vitest, Testing Library, Node's test runner, Python integration smoke check |
+
+## Run locally
+
+Prerequisites: Python 3.13 or 3.14, npm, and a Node.js version matching the engine range in [frontend/package.json](frontend/package.json). Internet access is needed for map tiles; live inference requires access to the datathon model network or VPN.
 
 From the repository root:
 
@@ -10,34 +31,89 @@ From the repository root:
 npm run dev
 ```
 
-This creates the backend Python environment and installs dependencies on first use, then starts both servers. Open **http://127.0.0.1:5173**. Ctrl+C stops both. Requires Python 3.13/3.14 (the launcher prefers 3.14), Node 22.12+ or 24 LTS, and internet for the map tiles.
+The launcher creates the backend virtual environment and installs dependencies on first use. It starts FastAPI on port **8000** and Vite on port **5173**. Open **http://127.0.0.1:5173**. Press Ctrl+C to stop both services.
 
-The backend uses the supplied datathon setup: `http://10.246.100.230/v1`, model `qwen3-vl-8b-instruct`, and the supplied datathon key. You must be on a network/VPN that can reach that GB10 server. Override `LLM_BASE_URL`, `LLM_MODEL`, or `LLM_API_KEY` in your shell if the setup changes.
+Run this command from the root: starting Vite inside `frontend/` starts only the frontend. The launcher checks for occupied ports to help avoid duplicate servers. Check API health at **http://127.0.0.1:5173/api/health**; this checks the API, independently of model connectivity.
 
-Choose a photo from the map or bottom photo strip, then click **Run analysis**. The answer appears directly beneath the photo. Red hotspots indicate urgent support; yellow hotspots indicate drone investigation; gray hotspots need no response. Drone missions animate from the nearest hub, with the map focused on the flight. Assessment details and activity are collapsed beneath the main result.
+### Model configuration
 
-There is no assessment-mode switch or simulation banner. The app first checks the live model server. If it is unavailable, these four exact images can use the genuine Qwen responses saved in the original team notebook, visibly labeled **Recorded Qwen result**. These are hash-checked against the source image. **Request fresh live analysis** bypasses that fallback and reports any actual live failure. The model input is a compact JPEG; the displayed original PNG is unchanged.
+The existing datathon defaults are preserved:
 
-The root `npm run dev` command starts **both** FastAPI on port 8000 and Vite on port 5173. Running `npm run dev` only inside `frontend/` starts no backend. Avoid starting two copies: the root launcher checks for occupied ports and tells you to stop the older instance. Backend health is at `/api/health` through the frontend proxy.
+| Environment variable | Purpose / default |
+| --- | --- |
+| `LLM_BASE_URL` | Model service at `http://10.246.100.230/v1` |
+| `LLM_MODEL` | `qwen3-vl-8b-instruct` |
+| `LLM_API_KEY` | Supplied datathon credential |
+| `LLM_TIMEOUT_SECONDS` | Request timeout, `90` seconds |
+| `FRONTEND_ORIGINS` | Localhost and 127.0.0.1 on port 5173 |
 
-## Four showcase cases
+Export overrides in your shell before starting the app. The root launcher does not automatically load `.env` files. See [backend setup](backend/README.md) for separate API startup and explicit environment-file loading.
 
-| Case | Source image | Showcase path |
+## Analysis workflow
+
+Select a hotspot or photo, then click **Run analysis**. The assessment appears beneath the image, including its reason and confidence. Red hotspots indicate response recommendations, yellow hotspots indicate drone investigation or review, and gray hotspots need no response.
+
+High-confidence flooding proceeds to a separate assistance assessment. A flooded vehicle alone remains possible danger; it does not establish that someone needs rescue. Uncertain findings require inspection or an operator decision. Drone missions animate from the nearest illustrative base, and response missions remain on site until the presenter marks the response team's arrival.
+
+**Reset observation** clears the selected observation for another demonstration. **Request fresh live analysis** bypasses recorded results and shows any live inference error. A live model's answer is preserved even when it differs from the rehearsal path.
+
+### Showcase observations
+
+| Observation | Original image | Rehearsal path |
 | --- | --- | --- |
-| No flood | `not_flooded.png` | Close without a drone |
-| Clear assistance need | `flooded_with_people.png` | Notify response; drone watches until presenter marks arrival |
-| Drone clears the case | `flooded_with_cars.png` | Possible danger; simulated inspection closes with no response |
-| Operator review | `flooded_with_cars2.png` | Possible danger; simulated inspection requests an operator decision |
+| No flood | `not_flooded.png` | Close without a drone mission |
+| Assistance needed | `flooded_with_people.png` | Recommend response and keep the drone on site |
+| Drone inspection | `flooded_with_cars.png` | Inspect possible danger and close without response |
+| Operator review | `flooded_with_cars2.png` | Inspect possible danger and request an operator decision |
 
-All four images live in `images/`, mapped in its manifest. Their PNG metadata has no GPS; map points are **illustrative Harris County locations**, labeled simulated. Drone movement, later findings, response notifications, and arrival events are simulations. A live model may choose a different path than the rehearsal script; its answer is not overwritten to force the scenario.
+### Data and simulation
 
-**Reset observation** replays the selected photo. Operator controls handle uncertain flood or drone results. A flooded car alone is possible danger, not proof that someone needs rescue.
+The original PNGs contain no GPS metadata. Their map points are illustrative Harris County locations, identified in the manifest with `locationSource: "illustrative"` and labeled in the UI. The model receives a compact JPEG derived from the original image; the displayed PNG remains unchanged.
 
-## Structure
+When the model host is unavailable, recorded results are eligible only if the original image's SHA-256 hash matches. The UI labels them **Recorded Qwen result**. Drone movement, later drone findings, response notifications, and arrival events are simulations; the app does not contact emergency services. Confidence labels are categorical model judgments, not calibrated probabilities.
 
-- `frontend/`: React, TypeScript, Vite, map and case workflow.
-- `backend/main.py`: canonical FastAPI image assessment service.
-- `backend/notebooks/`: development notebook importing that same service.
-- `images/`: the four original PNGs and scenario/location manifest.
+## Repository structure
 
-For separate server commands and model configuration, see [backend setup](backend/README.md). The [assessment contract](docs/assessment-contract.md) documents the HTTP handoff. Verify the UI build with `npm run build`; verify images with `node scripts/validate-images.mjs --require-complete`.
+```text
+backend/
+  main.py                       FastAPI service and model integration
+  smoke.py                      Controlled HTTP integration check
+  recorded_assessments.json     Original model results and image hashes
+  notebooks/
+    backend_development.ipynb   Notebook importing the canonical service
+frontend/
+  src/
+    App.tsx                     Observation review workflow
+    ObservationMap.tsx          Map, hotspots, and mission overlays
+    DroneMissionDetails.tsx     Mission status and progress
+    assessment.ts               Assessment types and service boundary
+    mission.ts                  Simulated mission state and progression
+images/                         Original PNGs and observation manifest
+scripts/                        Development launcher and image validation
+docs/                           HTTP contract and architecture decisions
+```
+
+The [assessment contract](docs/assessment-contract.md) documents the frontend/API boundary. [Architecture decisions](docs/adr/) explain the service design and recorded-result fallback.
+
+## Validation
+
+Run from the repository root after the development dependencies are installed:
+
+```sh
+npm --prefix frontend test
+npm run build
+node --test scripts/validate-images.test.mjs
+node scripts/validate-images.mjs --require-complete
+backend/.venv/bin/python backend/smoke.py
+```
+
+The backend smoke check uses the real image files and a controlled model transport, so it does not require the private model host.
+
+## Code conventions
+
+- React components, component filenames, and TypeScript types use `PascalCase`. Frontend tests use descriptive `PascalCase.test.tsx` names.
+- TypeScript functions and variables use `camelCase`; functions use descriptive action names, such as `getMissionLabel` and `startDroneMission`.
+- Python modules, notebooks, functions, and variables use `snake_case`; classes use `PascalCase` and constants use `UPPER_SNAKE_CASE`.
+- JavaScript utility filenames, documentation filenames, and CSS classes use `kebab-case`. Standard entry points such as `main.py`, `main.tsx`, and `App.tsx` retain their conventional names.
+- Source formatting uses two spaces for frontend and JavaScript code, four spaces for Python, and a 100-column target. TypeScript and JavaScript use single quotes and semicolons.
+- API field names, environment variables, observation IDs, and original image filenames stay consistent with their existing contracts. The original asset names also preserve recorded-result provenance.
