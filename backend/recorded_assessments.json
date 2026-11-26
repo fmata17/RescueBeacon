@@ -1,0 +1,62 @@
+{
+  "flooded_with_cars.png": {
+    "sha256": "a8a1f8969f1752253d0e639f3cc0fb5b1621752e64081c83943d3af4114e3725",
+    "provenance": "Original team notebook at e71cc2c, cell 21; recorded Qwen output, normalized for the staged UI.",
+    "rawResponse": "Uncertain.\n\nVisible evidence: The image shows multiple vehicles submerged in floodwaters across a residential or commercial area. However, from this aerial perspective, it is impossible to determine whether any of the flooded vehicles contain occupants. There are no visible people, no signs of movement, no emergency signals, and no other indicators of human presence or distress. While the flooding is severe, the absence of visible occupants or distress signals means we cannot confirm whether assistance is needed. Therefore, the correct assessment is \u201cuncertain,\u201d as the situation cannot be ruled out as requiring rescue based on visible evidence alone.",
+    "flood": {
+      "assessment": "yes",
+      "confidence": "high",
+      "reason": "The recorded image analysis identifies floodwater surrounding buildings and vehicles."
+    },
+    "assistance": {
+      "assessment": "uncertain",
+      "confidence": "medium",
+      "reason": "Several vehicles are submerged, but occupants cannot be seen from this aerial view. The model cannot confirm whether anyone needs rescue, so a closer inspection is required."
+    }
+  },
+  "flooded_with_cars2.png": {
+    "sha256": "a241cb54d645ece053b634ecfbc2cd1577ac8e349255a6891973b76eb607992e",
+    "provenance": "Original team notebook at e71cc2c, cell 22; recorded Qwen output, normalized for the staged UI.",
+    "rawResponse": "Uncertain.\n\nVisible evidence: The image shows a wide area of residential streets and yards completely flooded. Numerous vehicles are submerged in the water, with only their roofs or upper portions visible. However, there are no visible people in or near any of the flooded vehicles or in any of the flooded areas. The water level is high enough to cover most vehicles, and no signs of movement, distress signals, or occupants can be seen. Since the presence of people inside the flooded vehicles cannot be confirmed from this aerial view, and the situation involves widespread flooding with submerged vehicles, it is uncertain whether assistance is needed. A flooded vehicle alone does not establish that someone is inside or needs rescue, and absence of visible people does not confirm that assistance is unnecessary.",
+    "flood": {
+      "assessment": "yes",
+      "confidence": "high",
+      "reason": "The recorded image analysis identifies floodwater surrounding buildings and vehicles."
+    },
+    "assistance": {
+      "assessment": "uncertain",
+      "confidence": "medium",
+      "reason": "Streets and yards are flooded and numerous vehicles are submerged. No occupants or distress signals are visible; whether anyone needs assistance remains uncertain."
+    }
+  },
+  "flooded_with_people.png": {
+    "sha256": "159268f75f58e6349a1231e3bb1ce761a0c3afff5e4f19262b8c6c41c81ad154",
+    "provenance": "Original team notebook at e71cc2c, cell 23; recorded Qwen output, normalized for the staged UI.",
+    "rawResponse": "Yes.\n\nVisible evidence: Three people are clearly visible on the roof of the central building. They are standing and appear to be waving or signaling, which strongly suggests they are in distress and require rescue. Their position on the roof, combined with the surrounding floodwaters that have submerged vehicles and streets, indicates they are trapped and need immediate assistance. The presence of people in this situation overrides the general rule that a flooded vehicle alone does not establish need for rescue, because here, people are visibly in danger.",
+    "flood": {
+      "assessment": "yes",
+      "confidence": "high",
+      "reason": "The recorded image analysis identifies floodwater surrounding buildings and vehicles."
+    },
+    "assistance": {
+      "assessment": "yes",
+      "confidence": "high",
+      "reason": "Three people are visible on a roof, apparently waving or signaling. Floodwater surrounds the building and submerges vehicles and streets; they appear stranded and in need of rescue."
+    }
+  },
+  "not_flooded.png": {
+    "sha256": "9fa5d8b7c240883ea867538b81ebdbcd0c750a0792f1647600e3451d0f3106b3",
+    "provenance": "Original team notebook at e71cc2c, cell 24; recorded Qwen output, normalized for the staged UI.",
+    "rawResponse": "No.\n\nVisible evidence: The image is an aerial view of a parking lot and adjacent roadways. Multiple vehicles are visible, including those parked in rows and others on the road. There is no visible flooding of any vehicle. There are no visible people, no signs of distress, and no indication that any vehicle is submerged or in danger. The scene appears to be a normal, non-emergency situation. Therefore, based on the visible evidence, no assistance is needed.",
+    "flood": {
+      "assessment": "no",
+      "confidence": "high",
+      "reason": "The recorded image analysis identifies a dry roadway and parking lot, with no visible flooding."
+    },
+    "assistance": {
+      "assessment": "no",
+      "confidence": "high",
+      "reason": "The parking lot and roads are dry. Vehicles are not submerged and no visible people or distress signals indicate a need for assistance."
+    }
+  }
+}

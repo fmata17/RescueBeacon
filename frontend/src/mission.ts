@@ -23,33 +23,53 @@ function distanceKm(a: Coordinate, b: Coordinate) {
   const radians = Math.PI / 180;
   const deltaLat = (b[0] - a[0]) * radians;
   const deltaLng = (b[1] - a[1]) * radians;
-  const arc = Math.sin(deltaLat / 2) ** 2 + Math.cos(a[0] * radians) * Math.cos(b[0] * radians) * Math.sin(deltaLng / 2) ** 2;
+  const arc =
+    Math.sin(deltaLat / 2) ** 2 +
+    Math.cos(a[0] * radians) * Math.cos(b[0] * radians) * Math.sin(deltaLng / 2) ** 2;
   return 6371 * 2 * Math.atan2(Math.sqrt(arc), Math.sqrt(1 - arc));
 }
 
-export function startDroneMission(observation: Observation, purpose: DroneMission['purpose'] = 'response'): DroneMission {
+export function startDroneMission(
+  observation: Observation,
+  purpose: DroneMission['purpose'] = 'response',
+): DroneMission {
   let assignment: DroneMission['assignment'] = null;
   if (observation.latitude !== null && observation.longitude !== null) {
     const destination: Coordinate = [observation.latitude, observation.longitude];
-    assignment = droneBases.map((base) => ({ base, destination, distanceKm: distanceKm(base.position, destination) })).sort((a, b) => a.distanceKm - b.distanceKm)[0];
+    assignment = droneBases
+      .map((base) => ({ base, destination, distanceKm: distanceKm(base.position, destination) }))
+      .sort((a, b) => a.distanceKm - b.distanceKm)[0];
   }
   return { purpose, phase: 'en-route', startedAt: Date.now(), progress: 0, assignment };
 }
 
-export const missionLabel = (mission: DroneMission) => ({
-  'en-route': 'En route', inspecting: 'Inspecting observation',
-  'on-site': mission.purpose === 'response' ? 'On site · awaiting response team' : 'On site · awaiting operator decision',
-  complete: mission.purpose === 'response' ? 'Mission complete · response team arrived' : 'Mission complete · No assistance needed',
-})[mission.phase];
+export const getMissionLabel = (mission: DroneMission) =>
+  ({
+    'en-route': 'En route',
+    inspecting: 'Inspecting observation',
+    'on-site':
+      mission.purpose === 'response'
+        ? 'On site · awaiting response team'
+        : 'On site · awaiting operator decision',
+    complete:
+      mission.purpose === 'response'
+        ? 'Mission complete · response team arrived'
+        : 'Mission complete · No assistance needed',
+  })[mission.phase];
 
 // Fixed presentation pacing, unrelated to distance or real travel time.
-export function advanceDroneMission(mission: DroneMission, now: number): { mission: DroneMission; events: string[] } {
+export function advanceDroneMission(
+  mission: DroneMission,
+  now: number,
+): { mission: DroneMission; events: string[] } {
   if (mission.phase === 'complete' || mission.phase === 'on-site') return { mission, events: [] };
   const elapsed = Math.max(0, now - mission.startedAt);
-  const phase = elapsed >= 6000 ? 'on-site' : elapsed >= 4000 ? 'inspecting' : 'en-route';
-  const progress = Math.min(1, elapsed / 4000);
+  const phase = elapsed >= 11000 ? 'on-site' : elapsed >= 8000 ? 'inspecting' : 'en-route';
+  const progress = Math.min(1, elapsed / 8000);
   const events: string[] = [];
-  if (mission.phase === 'en-route' && phase !== 'en-route') events.push('Simulated drone inspection: maintaining a view of the observation.');
-  if (phase === 'on-site' && mission.purpose === 'response') events.push('Simulated drone remains on site until the presenter marks response team arrival.');
+  if (mission.phase === 'en-route' && phase !== 'en-route')
+    events.push('Simulated drone inspection: maintaining a view of the observation.');
+  if (phase === 'on-site' && mission.purpose === 'response')
+    events.push('Simulated drone remains on site until the presenter marks response team arrival.');
   return { mission: { ...mission, phase, progress }, events };
 }
